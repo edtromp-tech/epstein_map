@@ -172,8 +172,3 @@ export async function mainApp({ pdfViewer }) {
 
   toast("Loaded. Click a person bubble to explore.");
 }
-
-mainApp({ pdfViewer: window.pdfViewer }).catch(err => {
-  console.error(err);
-  alert("Failed to load site data. Check console for details.");
-});
