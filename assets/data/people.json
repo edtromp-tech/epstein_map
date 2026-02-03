@@ -4,6 +4,7 @@
     "name": "Jeffrey Epstein",
     "DOB": "1953-01-20",
     "type": "accused",
+    "role": ["financier","intermediary"],
     "tags": ["central"],
     "notes": "Primary subject",
     "caseIds": ["case_2019_sdny", "case_2008_fl", "case_9:10-cv-80447-KAM"]
@@ -31,5 +32,37 @@
     "tags": ["redacted"],
     "notes": "Anonymous / redacted",
     "caseIds": ["case_9:10-cv-80447-KAM"]
+  },
+{
+    "id": "boris_nikolic",
+    "type": "other",
+    "name": "Boris Nikolic",
+    "aliases": ["Boris N."],
+    "roles": ["employee", "recipient"],
+    "tags": ["other"]
+
+  },
+    {
+    "id": "larry_cohen",
+    "type": "other",
+    "name": "Larry Cohen",
+    "aliases": [],
+    "roles": ["sender", "coordinator"],
+    "tags": ["other"]
+  },
+  {
+    "id": "bill_gates",
+    "type": "other",
+    "name": "Bill Gates",
+    "aliases": ["William H. Gates", "Bill"],
+    "roles": ["principal"],
+    "tags": ["other"]
+  },
+    {
+    "id": "malcolm_grumbridge",
+    "name": "Malcolm Grumbridge",
+    "type": "other",
+    "tags": ["associate"],
+    "notes": "Family associate to Maxwell"
   }
 ]

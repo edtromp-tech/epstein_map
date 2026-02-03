@@ -26,6 +26,42 @@
     "relationship": "assistant",
     "weight": 3,
     "evidenceIds": ["doc_0002"]
+  },
+   {
+    "source": "larry_cohen",
+    "target": "jeffrey_epstein",
+    "relationship": "coordinator",
+    "weight": 1,
+    "evidenceIds": ["doc_Dataset12_EFTA02730265"]
+  },
+   {
+    "source": "larry_cohen",
+    "target": "boris_nikolic",
+    "relationship": "coordinator",
+    "weight": 2,
+    "evidenceIds": ["doc_Dataset12_EFTA02730265"]
+  },
+   {
+    "source": "boris_nikolic",
+    "target": "jeffrey_epstein",
+    "relationship": "recipient",
+    "weight": 1,
+    "evidenceIds": ["doc_Dataset12_EFTA02730265"]
+  },
+    {
+    "source": "boris_nikolic",
+    "target": "bill_gates",
+    "relationship": "agreement_principal",
+    "weight": 1,
+    "evidenceIds": ["doc_Dataset12_EFTA02730265"]
+  }
+  ,
+    {
+    "source": "malcolm_grumbridge",
+    "target": "ghislaine_maxwell",
+    "relationship": "family_associate",
+    "weight": 3,
+    "evidenceIds": ["doc_Dataset12_EFTA02730267"]
   }
 
 ]
