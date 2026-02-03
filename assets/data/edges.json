@@ -4,56 +4,111 @@
     "target": "ghislaine_maxwell",
     "relationship": "facilitation",
     "weight": 3,
-    "evidenceIds": ["doc_0001"]
+    "evidence": [
+      {
+        "document_id": "doc_0001",
+        "type": "court_record",
+        "date": "2019-08-01", 
+        "excerpt": "Jeffrey Epstein is mentioned in the court record."
+      }
+    ]
   },
   {
     "source": "jeffrey_epstein",
     "target": "victim_001",
     "relationship": "alleged_abuse",
     "weight": 5,
-    "evidenceIds": ["doc_0002"]
+    "evidence": [
+      {
+        "document_id": "doc_0002",
+        "type": "court_record",
+        "date": "2019-08-01", 
+        "excerpt": "Sarah Kellen is mentioned as an associate of Jeffrey Epstein in the victim statement."
+      }
+    ]
   },
   {
     "source": "sarah_kellen",
     "target": "victim_001",
     "relationship": "assistant_in_abuse",
     "weight": 4,
-    "evidenceIds": ["doc_0002"]
+    "evidence": [
+      {
+        "document_id": "doc_0002",
+        "type": "court_record",
+        "date": "2019-08-01", 
+        "excerpt": "Sarah Kellen is mentioned as an associate of Jeffrey Epstein in the victim statement."
+      }
+    ]
   },
    {
     "source": "jeffrey_epstein",
     "target": "sarah_kellen",
     "relationship": "assistant",
     "weight": 3,
-    "evidenceIds": ["doc_0002"]
+    "evidence": [
+      {
+        "document_id": "doc_0002",
+        "type": "court_record",
+        "date": "2019-08-01", 
+        "excerpt": "Sarah Kellen is mentioned as an associate of Jeffrey Epstein in the victim statement."
+      }
+    ]
   },
    {
     "source": "larry_cohen",
     "target": "jeffrey_epstein",
     "relationship": "coordinator",
     "weight": 1,
-    "evidenceIds": ["doc_Dataset12_EFTA02730265"]
+    "evidence": [
+      {
+          "document_id": "doc_Dataset12_EFTA02730265",
+          "type": "email",
+          "date": "2013-08-24",
+          "excerpt": "Larry Cohen was involved in an email with Epstein"
+        }
+    ]
   },
    {
     "source": "larry_cohen",
     "target": "boris_nikolic",
     "relationship": "coordinator",
     "weight": 2,
-    "evidenceIds": ["doc_Dataset12_EFTA02730265"]
+    "evidence": [          
+        {
+          "document_id": "doc_Dataset12_EFTA02730265",
+          "type": "email",
+          "date": "2013-08-24",
+          "excerpt": "Larry Cohen was involved in an email with Boris Nikolic"
+        }
+      ]
   },
    {
     "source": "boris_nikolic",
     "target": "jeffrey_epstein",
     "relationship": "recipient",
     "weight": 1,
-    "evidenceIds": ["doc_Dataset12_EFTA02730265"]
+    "evidence": [          {
+          "document_id": "doc_Dataset12_EFTA02730265",
+          "type": "email",
+          "date": "2013-08-24",
+          "excerpt": "Boris Nikolic was involved in an agreement with Jeffrey Epstein"
+        }]
   },
     {
     "source": "boris_nikolic",
     "target": "bill_gates",
     "relationship": "agreement_principal",
     "weight": 1,
-    "evidenceIds": ["doc_Dataset12_EFTA02730265"]
+    "evidence": [
+          {
+          "document_id": "doc_Dataset12_EFTA02730265",
+          "type": "email",
+          "date": "2013-08-24",
+          "excerpt": "Boris Nikolic was involved in an agreement with Bill Gates."
+        }
+
+      ]
   }
   ,
     {
@@ -61,7 +116,119 @@
     "target": "ghislaine_maxwell",
     "relationship": "family_associate",
     "weight": 3,
-    "evidenceIds": ["doc_Dataset12_EFTA02730267"]
-  }
+    "evidence": [
+      {
+          "document_id": "doc_Dataset12_EFTA02730267",
+          "type": "article",
+          "date": "2021-08-05",
+          "excerpt": "Grumbridge has been at the heart of the Maxwell's finances to include acted as the custodian of 44 Kinnerton St in Belgravia, London.' The article also states Grumbridge established over 150 companies in total."
+        },
+        {
+          "document_id": "doc_Dataset12_EFTA02730267",
+          "type": "article",
+          "date": "2020-07-02",
+          "excerpt": "Grumbridge is referenced as a Maxwell family associate and has involvement in theHogarth Group, a company that runs health clubs in West London."
+        }
+        
+  ]
+  },
+   {
+    "source": "malcolm_grumbridge",
+    "target": "kevin_maxwell",
+    "relationship": "benefactor",
+    "weight": 2,
+    "evidence": [
+      {
+          "document_id": "doc_Dataset12_EFTA02730267",
+          "type": "article",
+          "date": "2005-08-05",
+          "excerpt": "The article notes Kevin Maxwell had a mystery benefactor over payments dueon his home."
+        }
+    ]
+   },
+   {
+    "source": "malcolm_grumbridge",
+    "target": "ian_maxwell",
+    "relationship": "associated",
+    "weight": 2,
+    "evidence": [
+      {
+          "document_id": "doc_Dataset12_EFTA02730267",
+          "type": "article",
+          "date": "2021-08-02",
+          "excerpt": "The article notes Ian Maxwell was associated with Malcolm Grumbridge."
+        }
+    ]
+   },
+   {
+    "source": "prince_andrew",
+    "target": "malcolm_grumbridge",
+    "relationship": "unknown",
+    "weight": 2,
+    "evidence": [
+      {
+          "document_id": "doc_Dataset12_EFTA02730267",
+          "type": "article",
+          "date": "2020-07-02",
+          "excerpt": "Ghislaine Maxwell still has connections despite link to Prince Andrew and JefferyEpstein"
+        }
+    ]
+   },
+   {
+    "source": "ian_maxwell",
+    "target": "ghislaine_maxwell",
+    "relationship": "Family Member",
+    "weight": 1,
+    "evidence": [
+      {
+          "document_id": "doc_Dataset12_EFTA02730267",
+          "type": "article",
+          "date": "2021-08-02",
+          "excerpt": "Family members showing up in the same articles as Ghislaine Maxwell"
+        }
+    ]
+   },
+   {
+    "source": "kevin_maxwell",
+    "target": "ghislaine_maxwell",
+    "relationship": "Family Member",
+    "weight": 1,
+    "evidence": [
+      {
+          "document_id": "doc_Dataset12_EFTA02730267",
+          "type": "article",
+          "date": "2021-08-02",
+          "excerpt": "Family members showing up in the same articles as Ghislaine Maxwell"
+        }
+    ]
+   },
+   {
+    "source": "michelle_healy",
+    "target": "ghislaine_maxwell",
+    "relationship": "Employee",
+    "weight": 1,
+    "evidence": [
+      {
+          "document_id": "doc_Dataset12_EFTA02730271",
+          "type": "article",
+          "date": "1900-01-01",
+          "excerpt": "Michelle Healy worked as a receptionist in Jeffrey Epstein’s New York office from 1996 to 1999, where both Jeffrey Epstein and Ghislaine Maxwell were her bosses."
+        }
+    ]
+   },
+   {
+    "source": "michelle_healy",
+    "target": "jeffrey_epstein",
+    "relationship": "Employee",
+    "weight": 1,
+    "evidence": [
+      {
+          "document_id": "doc_Dataset12_EFTA02730271",
+          "type": "article",
+          "date": "1900-01-01",
+          "excerpt": "Michelle Healy worked as a receptionist in Jeffrey Epstein’s New York office from 1996 to 1999, where both Jeffrey Epstein and Ghislaine Maxwell were her bosses."
+        }
+    ]
+   }
 
 ]

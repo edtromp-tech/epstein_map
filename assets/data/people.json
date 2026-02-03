@@ -64,5 +64,34 @@
     "type": "other",
     "tags": ["associate"],
     "notes": "Family associate to Maxwell"
+  },
+    {
+    "id": "prince_andrew",
+    "name": "Prince Andrew",
+    "type": "other",
+    "tags": ["connection"],
+    "notes": "Unsure"
+  },
+    {
+    "id": "kevin_maxwell",
+    "name": "Kevin Maxwell",
+    "type": "other",
+    "tags": ["benefactor"],
+    "notes": "Family friend and Lawyer to Grumbridge"
+  },
+    {
+    "id": "ian_maxwell",
+    "name": "Ian Maxwell",
+    "type": "other",
+    "tags": ["other"],
+    "notes": "Maxwell Family Member"
+  }
+  ,
+    {
+    "id": "michelle_healy",
+    "name": "Michelle Healy",
+    "type": "other",
+    "tags": ["other"],
+    "notes": "Michelle Healy worked as a receptionist in Jeffrey Epstein’s New York office from 1996 to 1999, where both Jeffrey Epstein and Ghislaine Maxwell were her bosses"
   }
 ]
