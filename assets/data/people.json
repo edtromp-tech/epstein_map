@@ -1,0 +1,33 @@
+[
+  {
+    "id": "jeffrey_epstein",
+    "name": "Jeffrey Epstein",
+    "type": "accused",
+    "tags": ["central"],
+    "notes": "Primary subject",
+    "caseIds": ["case_2019_sdny", "case_2008_fl"]
+  },
+  {
+    "id": "ghislaine_maxwell",
+    "name": "Ghislaine Maxwell",
+    "type": "accused",
+    "tags": ["associate"],
+    "notes": "Associated with recruitment allegations",
+    "caseIds": ["case_2019_sdny"]
+  },
+  {
+    "id": "victim_001",
+    "name": "Victim #1",
+    "type": "victim",
+    "tags": ["redacted"],
+    "notes": "Anonymous / redacted",
+    "caseIds": ["case_2019_sdny"]
+  },
+  {
+    "id": "person_x",
+    "name": "Person X",
+    "type": "other",
+    "tags": ["mentioned"],
+    "notes": "Mentioned in document"
+  }
+]

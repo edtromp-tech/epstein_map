@@ -1,0 +1,30 @@
+[
+  {
+    "source": "jeffrey_epstein",
+    "target": "ghislaine_maxwell",
+    "relationship": "facilitation",
+    "weight": 3,
+    "evidenceIds": ["doc_0001"]
+  },
+  {
+    "source": "jeffrey_epstein",
+    "target": "victim_001",
+    "relationship": "alleged_abuse",
+    "weight": 5,
+    "evidenceIds": ["doc_0002"]
+  },
+  {
+    "source": "ghislaine_maxwell",
+    "target": "victim_001",
+    "relationship": "procurement",
+    "weight": 4,
+    "evidenceIds": ["doc_0002"]
+  },
+  {
+    "source": "jeffrey_epstein",
+    "target": "person_x",
+    "relationship": "association",
+    "weight": 1,
+    "evidenceIds": ["doc_0001"]
+  }
+]

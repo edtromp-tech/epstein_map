@@ -1,0 +1,18 @@
+[
+  {
+    "id": "doc_0001",
+    "title": "Filing excerpt — mentions associates",
+    "date": "2019-07-08",
+    "source": "Court record",
+    "filePath": "files/case_2019_sdny/0001.pdf",
+    "mentions": ["jeffrey_epstein", "ghislaine_maxwell", "person_x"]
+  },
+  {
+    "id": "doc_0002",
+    "title": "Victim statement excerpt",
+    "date": "2019-08-01",
+    "source": "Court record",
+    "filePath": "files/case_2019_sdny/0002.pdf",
+    "mentions": ["jeffrey_epstein", "ghislaine_maxwell", "victim_001"]
+  }
+]

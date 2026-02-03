@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Epstein Files — Separation Map</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- D3 -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+  <!-- PDF.js -->
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="title">Epstein Files — Network Explorer</div>
+      <div class="subtitle">Interactive degrees-of-separation map (public dataset)</div>
+    </div>
+
+    <div class="search">
+      <input id="searchInput" placeholder="Search person…" />
+      <button id="searchBtn">Go</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Left controls -->
+    <aside class="sidebar">
+      <section class="panel">
+        <h3>Filters</h3>
+
+        <div class="row">
+          <label class="check"><input type="checkbox" id="filterVictim" checked /> Victims</label>
+          <label class="check"><input type="checkbox" id="filterAccused" checked /> Accused</label>
+          <label class="check"><input type="checkbox" id="filterOther" checked /> Other</label>
+        </div>
+
+        <div class="row">
+          <label for="riskMin">Min risk</label>
+          <input id="riskMin" type="range" min="0" max="1" step="0.01" value="0" />
+          <div class="hint"><span id="riskMinLabel">0.00</span> → 1.00</div>
+          <div class="tiny">
+            Risk score is a heuristic computed from evidence links & relationship types.
+          </div>
+        </div>
+
+        <div class="row">
+          <label for="degreeLimit">Degrees shown</label>
+          <input id="degreeLimit" type="range" min="1" max="5" step="1" value="3" />
+          <div class="hint">Within <span id="degreeLimitLabel">3</span> hops of selected</div>
+        </div>
+
+        <div class="row">
+          <button id="resetBtn" class="btn">Reset View</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h3>Legend</h3>
+        <div class="legend">
+          <div class="legend-item"><span class="dot victim"></span> Victim</div>
+          <div class="legend-item"><span class="dot accused"></span> Accused</div>
+          <div class="legend-item"><span class="dot other"></span> Other</div>
+          <div class="legend-item"><span class="dot risk"></span> Red halo = higher risk</div>
+        </div>
+      </section>
+    </aside>
+
+    <!-- Graph -->
+    <section class="graphWrap">
+      <svg id="graph"></svg>
+      <div id="toast" class="toast hidden"></div>
+    </section>
+
+    <!-- Right details + PDF viewer -->
+    <aside class="rightbar">
+      <section class="panel" id="detailsPanel">
+        <h3>Person</h3>
+        <div class="empty">Click a bubble to see details.</div>
+      </section>
+
+      <section class="panel pdfPanel">
+        <div class="pdfHeader">
+          <h3>Document Viewer</h3>
+          <div class="pdfControls">
+            <button id="pdfPrev" class="btn small">Prev</button>
+            <button id="pdfNext" class="btn small">Next</button>
+            <button id="pdfZoomOut" class="btn small">−</button>
+            <button id="pdfZoomIn" class="btn small">+</button>
+          </div>
+        </div>
+
+        <div class="pdfMeta">
+          <div id="pdfTitle" class="pdfTitle">No document selected</div>
+          <div class="pdfHint" id="pdfHint">Click a document link to load it here.</div>
+        </div>
+
+        <div class="pdfCanvasWrap">
+          <canvas id="pdfCanvas"></canvas>
+          <div id="pdfLoading" class="pdfLoading hidden">Loading PDF…</div>
+        </div>
+      </section>
+    </aside>
+  </main>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
