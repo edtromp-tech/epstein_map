@@ -8,6 +8,8 @@ export function initPdfViewer({
   zoomInId,
   zoomOutId,
 }) {
+  const pdfjsLib = window.pdfjsLib; // <- use global pdfjsLib
+
   const canvas = document.getElementById(canvasId);
   const ctx = canvas.getContext("2d");
 
@@ -20,8 +22,6 @@ export function initPdfViewer({
   const zoomInBtn = document.getElementById(zoomInId);
   const zoomOutBtn = document.getElementById(zoomOutId);
 
-  // PDF.js config
-  // eslint-disable-next-line no-undef
   pdfjsLib.GlobalWorkerOptions.workerSrc =
     "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.js";
 
@@ -31,18 +31,13 @@ export function initPdfViewer({
 
   async function renderPage(num) {
     if (!pdfDoc) return;
-
     loadingEl.classList.remove("hidden");
-
     const page = await pdfDoc.getPage(num);
     const viewport = page.getViewport({ scale });
-
     canvas.height = viewport.height;
     canvas.width = viewport.width;
-
     const renderTask = page.render({ canvasContext: ctx, viewport });
     await renderTask.promise;
-
     loadingEl.classList.add("hidden");
   }
 
@@ -50,9 +45,7 @@ export function initPdfViewer({
     try {
       titleEl.textContent = title;
       hintEl.textContent = url;
-
       loadingEl.classList.remove("hidden");
-      // eslint-disable-next-line no-undef
       pdfDoc = await pdfjsLib.getDocument(url).promise;
       pageNum = 1;
       await renderPage(pageNum);

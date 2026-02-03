@@ -1,6 +1,5 @@
 import { initGraph } from "./graph.js";
 import { computeRiskScores } from "./risk.js";
-import { initPdfViewer } from "./pdfviewer.js";
 
 async function loadJSON(path) {
   const res = await fetch(path);
@@ -15,7 +14,7 @@ function toast(msg) {
   setTimeout(() => el.classList.add("hidden"), 2600);
 }
 
-async function main() {
+export async function mainApp({ pdfViewer }) {
   const [people, edges, cases, documents] = await Promise.all([
     loadJSON("assets/data/people.json"),
     loadJSON("assets/data/edges.json"),
@@ -30,18 +29,6 @@ async function main() {
 
   // Compute automatic risk score
   computeRiskScores({ people, edges, cases, documents });
-
-  // PDF viewer
-  const pdfViewer = initPdfViewer({
-    canvasId: "pdfCanvas",
-    titleId: "pdfTitle",
-    hintId: "pdfHint",
-    loadingId: "pdfLoading",
-    prevId: "pdfPrev",
-    nextId: "pdfNext",
-    zoomInId: "pdfZoomIn",
-    zoomOutId: "pdfZoomOut",
-  });
 
   // UI state
   const state = {
@@ -186,7 +173,7 @@ async function main() {
   toast("Loaded. Click a person bubble to explore.");
 }
 
-main().catch(err => {
+mainApp({ pdfViewer: window.pdfViewer }).catch(err => {
   console.error(err);
   alert("Failed to load site data. Check console for details.");
 });
