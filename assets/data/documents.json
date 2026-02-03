@@ -5,7 +5,7 @@
     "date": "2019-07-08",
     "source": "Court record",
     "filePath": "files/case_2019_sdny/0001.pdf",
-    "mentions": ["jeffrey_epstein", "ghislaine_maxwell", "person_x"]
+    "mentions": ["jeffrey_epstein", "ghislaine_maxwell"]
   },
   {
     "id": "doc_0002",
@@ -13,6 +13,6 @@
     "date": "2019-08-01",
     "source": "Court record",
     "filePath": "files/case_2019_sdny/0002.pdf",
-    "mentions": ["jeffrey_epstein", "ghislaine_maxwell", "victim_001"]
+    "mentions": ["jeffrey_epstein", "sarah_kellen", "victim_001"]
   }
 ]

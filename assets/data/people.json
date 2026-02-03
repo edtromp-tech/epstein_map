@@ -2,10 +2,11 @@
   {
     "id": "jeffrey_epstein",
     "name": "Jeffrey Epstein",
+    "DOB": "1953-01-20",
     "type": "accused",
     "tags": ["central"],
     "notes": "Primary subject",
-    "caseIds": ["case_2019_sdny", "case_2008_fl"]
+    "caseIds": ["case_2019_sdny", "case_2008_fl", "case_9:10-cv-80447-KAM"]
   },
   {
     "id": "ghislaine_maxwell",
@@ -15,19 +16,20 @@
     "notes": "Associated with recruitment allegations",
     "caseIds": ["case_2019_sdny"]
   },
+    {
+    "id": "sarah_kellen",
+    "name": "Sarah Kellen",
+    "type": "accused",
+    "tags": ["associate"],
+    "notes": "Associated with grooming allegations",
+    "caseIds": ["case_9:10-cv-80447-KAM"]
+  },
   {
     "id": "victim_001",
-    "name": "Victim #1",
+    "name": "C.L.",
     "type": "victim",
     "tags": ["redacted"],
     "notes": "Anonymous / redacted",
-    "caseIds": ["case_2019_sdny"]
-  },
-  {
-    "id": "person_x",
-    "name": "Person X",
-    "type": "other",
-    "tags": ["mentioned"],
-    "notes": "Mentioned in document"
+    "caseIds": ["case_9:10-cv-80447-KAM"]
   }
 ]

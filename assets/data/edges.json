@@ -14,17 +14,18 @@
     "evidenceIds": ["doc_0002"]
   },
   {
-    "source": "ghislaine_maxwell",
+    "source": "sarah_kellen",
     "target": "victim_001",
-    "relationship": "procurement",
+    "relationship": "assistant_in_abuse",
     "weight": 4,
     "evidenceIds": ["doc_0002"]
   },
-  {
+   {
     "source": "jeffrey_epstein",
-    "target": "person_x",
-    "relationship": "association",
-    "weight": 1,
-    "evidenceIds": ["doc_0001"]
+    "target": "sarah_kellen",
+    "relationship": "assistant",
+    "weight": 3,
+    "evidenceIds": ["doc_0002"]
   }
+
 ]

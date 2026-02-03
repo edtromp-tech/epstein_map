@@ -5,10 +5,10 @@
     "summary": "Indictment and related filings",
     "documentIds": ["doc_0001", "doc_0002"]
   },
-  {
-    "id": "case_2008_fl",
-    "title": "Florida 2008 Case",
+   {
+    "id": "case_9:10-cv-80447-KAM",
+    "title": "Florida 2010 Case",
     "summary": "Earlier proceedings and related records",
-    "documentIds": []
+    "documentIds": ["doc_0002"]
   }
 ]

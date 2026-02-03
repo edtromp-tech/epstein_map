@@ -87,11 +87,12 @@ export function initGraph({ svgId, people, edges, onPersonClick }) {
 
   // Links
   const link = g.append("g")
-    .attr("stroke", "rgba(160,190,230,.18)")
     .attr("stroke-width", 1)
     .selectAll("line")
     .data(links)
     .join("line")
+    .attr("stroke", "rgba(160,190,230,.18)")
+    .attr("stroke-linecap", "round")
     .attr("stroke-width", d => Math.max(1, Math.sqrt(d.weight)));
 
   // Nodes
@@ -144,11 +145,19 @@ export function initGraph({ svgId, people, edges, onPersonClick }) {
   });
 
   sim.on("tick", () => {
+    // helper to handle links whose source/target might still be IDs
+    const coord = (nodeOrId, axis) => {
+      if (!nodeOrId) return 0;
+      if (typeof nodeOrId === "object") return nodeOrId[axis] ?? 0;
+      const p = peopleById.get(nodeOrId);
+      return p ? (p[axis] ?? 0) : 0;
+    };
+
     link
-      .attr("x1", d => d.source.x)
-      .attr("y1", d => d.source.y)
-      .attr("x2", d => d.target.x)
-      .attr("y2", d => d.target.y);
+      .attr("x1", d => coord(d.source, "x"))
+      .attr("y1", d => coord(d.source, "y"))
+      .attr("x2", d => coord(d.target, "x"))
+      .attr("y2", d => coord(d.target, "y"));
 
     node
       .attr("cx", d => d.x)
@@ -211,6 +220,12 @@ export function initGraph({ svgId, people, edges, onPersonClick }) {
       const degOk = allowedByDegree ? allowedByDegree.has(d.id) : true;
       return (typeOk && riskOk && degOk) ? null : "none";
     });
+    // build a map of visible node ids for reliable link visibility checks
+    const visibleMap = new Map();
+    node.each(function(d) {
+      const isVisible = d3.select(this).style("display") !== "none";
+      visibleMap.set(d.id, isVisible);
+    });
 
     link.style("display", d => {
       const a = typeof d.source === "string" ? d.source : d.source.id;
@@ -218,9 +233,8 @@ export function initGraph({ svgId, people, edges, onPersonClick }) {
       const aOk = peopleById.get(a);
       const bOk = peopleById.get(b);
 
-      // link visible only if both nodes visible
-      const aVisible = !node.filter(nd => nd.id === a).style("display");
-      const bVisible = !node.filter(nd => nd.id === b).style("display");
+      const aVisible = !!visibleMap.get(a);
+      const bVisible = !!visibleMap.get(b);
 
       return (aOk && bOk && aVisible && bVisible) ? null : "none";
     });
