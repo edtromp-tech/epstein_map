@@ -155,7 +155,8 @@ export async function mainApp({ pdfViewer }) {
         const docId = el.getAttribute("data-doc");
         const doc = docsById.get(docId);
         if (!doc) return;
-        await pdfViewer.load(doc.filePath, doc.title);
+        // TODO: PDF viewer disabled for now
+        // if (pdfViewer) await pdfViewer.load(doc.filePath, doc.title);
       });
     });
   }

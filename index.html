@@ -11,27 +11,27 @@
 
   <script type="module">
     // Import PDF.js and your viewer as modules
-    import * as pdfjsLib from "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.js";
-    import { initPdfViewer } from "./assets/js/pdfviewer.js";
+    // import * as pdfjsLib from "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.js";
+    // import { initPdfViewer } from "./assets/js/pdfviewer.js";
     import { mainApp } from "./assets/js/app.js";
 
     // Attach pdfjsLib to window so your viewer can access it
-    window.pdfjsLib = pdfjsLib;
+    // window.pdfjsLib = pdfjsLib;
 
     // Initialize PDF viewer
-    const pdfViewer = initPdfViewer({
-      canvasId: "pdfCanvas",
-      titleId: "pdfTitle",
-      hintId: "pdfHint",
-      loadingId: "pdfLoading",
-      prevId: "pdfPrev",
-      nextId: "pdfNext",
-      zoomInId: "pdfZoomIn",
-      zoomOutId: "pdfZoomOut"
-    });
+    // const pdfViewer = initPdfViewer({
+    //   canvasId: "pdfCanvas",
+    //   titleId: "pdfTitle",
+    //   hintId: "pdfHint",
+    //   loadingId: "pdfLoading",
+    //   prevId: "pdfPrev",
+    //   nextId: "pdfNext",
+    //   zoomInId: "pdfZoomIn",
+    //   zoomOutId: "pdfZoomOut"
+    // });
 
     // Run main app
-    mainApp({ pdfViewer }).catch(err => {
+    mainApp({ pdfViewer: null }).catch(err => {
       console.error(err);
       alert("Failed to load site data. Check console for details.");
     });
