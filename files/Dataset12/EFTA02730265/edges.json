@@ -1,0 +1,34 @@
+{
+    "document_id": "doc_Dataset12_EFTA02730265",
+    "edges": [
+        {
+            "edge_id": "edge_Dataset12_EFTA02730265_1",
+            "source": "jeffrey_epstein",
+            "target": "larry_cohen",
+            "relationship": "coordinator",
+            "weight": 1
+        },
+        {
+            "edge_id": "edge_Dataset12_EFTA02730265_2",
+            "source": "larry_cohen",
+            "target": "boris_nikolic",
+            "relationship": "coordinator",
+            "weight": 2
+        },
+        {
+            "edge_id": "edge_Dataset12_EFTA02730265_3",
+            "source": "boris_nikolic",
+            "target": "jeffrey_epstein",
+            "relationship": "recipient",
+            "weight": 1
+        },
+        {
+            "edge_id": "edge_Dataset12_EFTA02730265_4",
+            "source": "boris_nikolic",
+            "target": "bill_gates",
+            "relationship": "agreement_principal",
+            "weight": 1
+        }
+
+    ]
+}

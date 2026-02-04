@@ -1,0 +1,38 @@
+{
+  "document_id": "doc_Dataset12_EFTA02731039",
+  "people": [
+    {
+      "id": "leslie_groff",
+      "name": "Leslie Groff",
+      "type": "accused",
+      "tags": [
+        "to_be_categorized"
+      ]
+    },
+    {
+      "id": "jeffrey_epstein",
+      "name": "Jeffrey Epstein",
+      "type": "accused",
+      "tags": [
+        "to_be_categorized"
+      ]
+    }
+    ,
+    {
+      "id": "victim_001",
+      "name": "Victim 001",
+      "type": "victim",
+      "tags": [
+        "to_be_categorized"
+      ]
+    },
+    {
+      "id": "victim_002",
+      "name": "Victim 002",
+      "type": "victim",
+      "tags": [
+        "to_be_categorized"
+      ]
+    }
+  ]
+}

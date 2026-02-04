@@ -1,0 +1,60 @@
+{
+  "document_id": "doc_Dataset12_EFTA02730267",
+  "people": [
+    {
+      "id": "jeffrey_epstein",
+      "name": "Jeffrey Epstein",
+      "type": "accused",
+      "tags": [
+        "to_be_categorized"
+      ]
+    },
+    {
+      "id": "malcolm_grumbridge",
+      "name": "Malcolm Grumbridge",
+      "type": "other",
+      "tags": [
+        "custodian", 
+        "maxwell family associate"
+      ]
+    },
+    {
+      "id": "ghislaine_maxwell",
+      "name": "Ghislaine Maxwell",
+      "type": "accused",
+      "tags": [
+        "to_be_categorized"
+      ]
+    },
+    {
+      "id": "kevin_maxwell",
+      "name": "Kevin Maxwell",
+      "type": "other",
+      "tags": [
+        "to_be_categorized"
+      ],
+      "organizations": [
+        "org_hogarth_group"
+      ] 
+    },
+    {
+      "id": "ian_maxwell",
+      "name": "Ian Maxwell",
+      "type": "other",
+      "tags": [
+        "to_be_categorized"
+      ],
+      "organizations": [
+        "org_hogarth_group"
+      ] 
+    },
+    {
+      "id": "prince_andrew",
+      "name": "Prince Andrew",
+      "type": "other",
+      "tags": [
+        "to_be_categorized"
+      ]
+    }
+  ]
+}

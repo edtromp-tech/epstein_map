@@ -1,0 +1,12 @@
+{
+  "document_id": "doc_Dataset12_EFTA02730996",
+  "edges": [
+     {
+            "edge_id": "edge_Dataset12_EFTA02730265_1",
+            "source": "jeffrey_epstein",
+            "target": "leon_black",
+            "relationship": "associate",
+            "weight": 2
+        }
+  ]
+}

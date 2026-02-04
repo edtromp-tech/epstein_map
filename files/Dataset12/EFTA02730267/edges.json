@@ -1,0 +1,41 @@
+{
+    "document_id": "doc_Dataset12_EFTA02730267",
+    "edges": [
+        {
+            "edge_id": "edge_Dataset12_EFTA02730267_1",
+            "source": "jeffrey_epstein",
+            "target": "ghislaine_maxwell",
+            "relationship": "associate",
+            "weight": 5
+        },
+        {
+            "edge_id": "edge_Dataset12_EFTA02730267_2",
+            "source": "ghislaine_maxwell",
+            "target": "prince_andrew",
+            "relationship": "other",
+            "weight": 1
+        },
+        {
+            "edge_id": "edge_Dataset12_EFTA02730267_3",
+            "source": "malcolm_grumbridge",
+            "target": "kevin_maxwell",
+            "relationship": "benefactor",
+            "weight": 1
+        },
+        {
+            "edge_id": "edge_Dataset12_EFTA02730267_4",
+            "source": "malcolm_grumbridge",
+            "target": "ian_maxwell",
+            "relationship": "benefactor",
+            "weight": 1
+        },
+        {
+            "edge_id": "edge_Dataset12_EFTA02730267_5",
+            "source": "malcolm_grumbridge",
+            "target": "ghislaine_maxwell",
+            "relationship": "associate",
+            "weight": 3
+        }
+
+    ]
+}

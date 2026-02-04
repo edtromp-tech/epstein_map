@@ -1,44 +1,85 @@
 [
   {
-    "id": "doc_0001",
-    "title": "Filing excerpt — mentions associates",
-    "date": "2019-07-08",
-    "source": "Court record",
-    "filePath": "files/case_2019_sdny/0001.pdf",
-    "mentions": ["jeffrey_epstein", "ghislaine_maxwell"]
-  },
-  {
-    "id": "doc_0002",
-    "title": "Victim statement excerpt",
-    "date": "2019-08-01",
-    "source": "Court record",
-    "filePath": "files/case_2019_sdny/0002.pdf",
-    "mentions": ["jeffrey_epstein", "sarah_kellen", "victim_001"]
-  }
-  ,
-  {
     "id": "doc_Dataset12_EFTA02730265",
     "title": "Email chain where Larry Cohen sends draft 'Points' for a separation/settlement agreement, Jeffrey Epstein forwards to Boris Nikolic, and Nikolic replies with requested edits (termination date and job-help/reference clause).",
     "date": "2013-August-24",
     "source": "GMail",
-    "filePath": "files/Dataset12/EFTA02730265.pdf",
-    "mentions": ["jeffrey_epstein", "larry_cohen", "boris_nikolic", "bill_gates"]
-  }
-  ,
+    "filePath": "files/Dataset12/EFTA02730265/EFTA02730265.pdf",
+    "mentions": [
+      "jeffrey_epstein",
+      "larry_cohen",
+      "boris_nikolic",
+      "bill_gates"
+    ]
+  },
   {
     "id": "doc_Dataset12_EFTA02730267",
     "title": "Tactical Intelligence Report",
     "date": "2022-February-14",
-    "source": "Tactical Intelligence Report",
-    "filePath": "files/Dataset12/EFTA02730267.pdf",
-    "mentions": ["jeffrey_epstein", "malcolm_grumbridge", "ghislaine_maxwell", "kevin_maxwell", "ian_maxwell","prince_andrew"]
-  } ,
+    "source": "To be categorized",
+    "filePath": "files/Dataset12/EFTA02730267/EFTA02730267.pdf",
+    "mentions": [
+      "jeffrey_epstein",
+      "malcolm_grumbridge",
+      "ghislaine_maxwell",
+      "kevin_maxwell",
+      "ian_maxwell",
+      "prince_andrew"
+    ]
+  },
   {
     "id": "doc_Dataset12_EFTA02730271",
     "title": "Tactical Intelligence Report",
     "date": "2022-March-21",
-    "source": "Tactical Intelligence Report",
-    "filePath": "files/Dataset12/EFTA02730271.pdf",
-    "mentions": ["jeffrey_epstein", "ghislaine_maxwell", "michelle_healy"]
+    "source": "To be categorized",
+    "filePath": "files/Dataset12/EFTA02730271/EFTA02730271.pdf",
+    "mentions": [
+      "jeffrey_epstein",
+      "ghislaine_maxwell",
+      "michelle_healy"
+    ]
+  },
+  {
+    "id": "doc_Dataset12_EFTA02730477",
+    "title": "Tactical Intelligence Report 50D-NY-3027571-INTELPRODS",
+    "date": "2022-January-19",
+    "source": "To be categorized",
+    "filePath": "files/Dataset12/EFTA02730477/EFTA02730477.pdf",
+    "mentions": [
+      "roderic_alexander"
+    ]
+  },
+  {
+    "id": "doc_Dataset12_EFTA02730996",
+    "title": "Dechert LLP Memorandum",
+    "date": "2022-January-21",
+    "source": "To be categorized",
+    "filePath": "files/Dataset12/EFTA02730996/EFTA02730996.pdf",
+    "mentions": [
+      "leon_black",
+      "jeffrey_epstein"
+    ]
+  },
+  {
+    "id": "doc_Dataset12_EFTA02731018",
+    "title": "Ron Wyden Letter to Marc Rowan",
+    "date": "2022-June-22",
+    "source": "To be categorized",
+    "filePath": "files/Dataset12/EFTA02731018/EFTA02731018.pdf",
+    "mentions": [
+      "leon_black",
+      "jeffrey_epstein"
+    ]
+  },
+  {
+    "id": "doc_Dataset12_EFTA02731039",
+    "title": "Prosecution Memorandum",
+    "date": "2022-June-22",
+    "source": "To be categorized",
+    "filePath": "files/Dataset12/EFTA02731039/EFTA02731039.pdf",
+    "mentions": [
+      "leslie_groff",
+      "jeffrey_epstein"
+    ]
   }
 ]

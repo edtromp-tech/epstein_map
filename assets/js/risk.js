@@ -44,9 +44,19 @@ export function computeRiskScores({ people, edges, cases, documents }) {
   for (const p of people) raw.set(p.id, 0);
 
   for (const e of edges) {
-    const w = RELATION_WEIGHTS[e.relationship] ?? 1;
-    raw.set(e.source, (raw.get(e.source) || 0) + w);
-    raw.set(e.target, (raw.get(e.target) || 0) + w * 0.8);
+    // New edge format: edges array contains individual relationships
+    if (e.edges && Array.isArray(e.edges)) {
+      for (const edge of e.edges) {
+        const w = RELATION_WEIGHTS[edge.relationship] ?? 1;
+        raw.set(e.source, (raw.get(e.source) || 0) + w);
+        raw.set(e.target, (raw.get(e.target) || 0) + w * 0.8);
+      }
+    } else {
+      // Fallback for old format
+      const w = RELATION_WEIGHTS[e.relationship] ?? 1;
+      raw.set(e.source, (raw.get(e.source) || 0) + w);
+      raw.set(e.target, (raw.get(e.target) || 0) + w * 0.8);
+    }
   }
 
   for (const p of people) {

@@ -16,3 +16,21 @@
     }
   ]
 }
+
+    },
+    {
+      "label": "Build Data (Consolidate)",
+      "type": "shell",
+      "command": "python",
+      "args": ["build.py"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always"
+      },
+      "problemMatcher": []

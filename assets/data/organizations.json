@@ -3,7 +3,22 @@
     "id": "org_bgc3",
     "type": "organization",
     "name": "bgC3",
-    "aliases": ["bgc3"],
-    "tags": ["organization"]
+    "aliases": [
+      "bgc3"
+    ],
+    "tags": [
+      "organization"
+    ]
+  },
+  {
+    "id": "org_hogarth_group",
+    "type": "organization",
+    "name": "Hogarth Group",
+    "aliases": [
+      "Hogarth Group"
+    ],
+    "tags": [
+      "organization"
+    ]
   }
 ]

@@ -34,11 +34,12 @@ export function initGraph({ svgId, people, edges, onPersonClick }) {
   const peopleById = new Map(people.map(p => [p.id, p]));
 
   // D3 expects link source/target as objects or ids
+  // New edge format: grouped by source/target with edges array inside
   const links = edges.map(e => ({
-    ...e,
     source: e.source,
     target: e.target,
-    weight: e.weight ?? 1
+    weight: e.avg_weight ?? 1,
+    edges: e.edges // Keep for reference
   }));
 
   // Simulation
