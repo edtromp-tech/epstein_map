@@ -7,7 +7,7 @@
             "DOB": "1953-01-20",
             "type": "accused",
             "role": ["financier","intermediary"],
-            "tags": ["central"],
+            "tags": ["central", "sex trafficing"],
             "notes": "Primary subject",
             "caseIds": ["case_2019_sdny", "case_2008_fl", "case_9:10-cv-80447-KAM"]
         },

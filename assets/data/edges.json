@@ -1,6 +1,42 @@
 [
   {
     "source": "jeffrey_epstein",
+    "target": "barnaby_marsh",
+    "edges": [
+      {
+        "edge_id": "edge_Dataset10_EFTA02015409_1",
+        "relationship": "other",
+        "weight": 1
+      }
+    ],
+    "avg_weight": 1.0
+  },
+  {
+    "source": "barnaby_marsh",
+    "target": "bill_drayton",
+    "edges": [
+      {
+        "edge_id": "edge_Dataset10_EFTA02015409_2",
+        "relationship": "other",
+        "weight": 1
+      }
+    ],
+    "avg_weight": 1.0
+  },
+  {
+    "source": "jeffrey_epstein",
+    "target": "elon_musk",
+    "edges": [
+      {
+        "edge_id": "edge_Dataset10_EFTA02015409_3",
+        "relationship": "other",
+        "weight": 1
+      }
+    ],
+    "avg_weight": 1.0
+  },
+  {
+    "source": "jeffrey_epstein",
     "target": "larry_cohen",
     "edges": [
       {
@@ -209,8 +245,35 @@
         "edge_id": "edge_Dataset12_EFTA02731039_3",
         "relationship": "recruiter",
         "weight": 3
+      },
+      {
+        "edge_id": "edge_Dataset9_EFTA00392295_1",
+        "relationship": "assistant",
+        "weight": 3
+      },
+      {
+        "edge_id": "edge_Dataset9_EFTA00395166_1",
+        "relationship": "assistant",
+        "weight": 3
       }
     ],
     "avg_weight": 3.0
+  },
+  {
+    "source": "leslie_groff",
+    "target": "elon_musk",
+    "edges": [
+      {
+        "edge_id": "edge_Dataset9_EFTA00392295_2",
+        "relationship": "other",
+        "weight": 1
+      },
+      {
+        "edge_id": "edge_Dataset9_EFTA00395166_2",
+        "relationship": "other",
+        "weight": 1
+      }
+    ],
+    "avg_weight": 1.0
   }
 ]

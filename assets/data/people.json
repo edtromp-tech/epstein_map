@@ -10,6 +10,7 @@
     ],
     "tags": [
       "central",
+      "sex trafficing",
       "to_be_categorized"
     ],
     "notes": "Primary subject",
@@ -17,6 +18,45 @@
       "case_2019_sdny",
       "case_2008_fl",
       "case_9:10-cv-80447-KAM"
+    ]
+  },
+  {
+    "id": "barnaby_marsh",
+    "type": "other",
+    "name": "Barnaby Marsh",
+    "aliases": [
+      "B. Marsh"
+    ],
+    "roles": [
+      "businessman"
+    ],
+    "tags": [
+      "other"
+    ]
+  },
+  {
+    "id": "elon_musk",
+    "type": "other",
+    "name": "Elon Musk",
+    "aliases": [],
+    "roles": [
+      "entrepreneur",
+      "businessman"
+    ],
+    "tags": [
+      "other"
+    ]
+  },
+  {
+    "id": "bill_drayton",
+    "type": "other",
+    "name": "Bill Drayton",
+    "aliases": [],
+    "roles": [
+      "businessman"
+    ],
+    "tags": [
+      "other"
     ]
   },
   {
@@ -149,7 +189,14 @@
     "name": "Leslie Groff",
     "type": "accused",
     "tags": [
-      "to_be_categorized"
+      "to_be_categorized",
+      "other"
+    ],
+    "aliases": [
+      "L. Groff"
+    ],
+    "roles": [
+      "assistant"
     ]
   },
   {

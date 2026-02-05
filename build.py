@@ -3,7 +3,7 @@
 Build script to consolidate document data from individual folders into unified JSON files.
 
 Structure:
-- Source: files/Dataset12/EFTA*/ (each contains doc.json, people.json, edges.json, org.json, ref.json)
+- Source: files/Dataset*/EFTA*/ (each contains doc.json, people.json, edges.json, org.json, ref.json)
 - Output: assets/data/ (consolidated people.json, edges.json, organizations.json, documents.json, cases.json)
 """
 
@@ -154,11 +154,11 @@ def build():
     print("Building consolidated data files...\n")
     
     # Paths
-    dataset_dir = Path("files/Dataset12")
+    files_dir = Path("files")
     output_dir = Path("assets/data")
     
-    if not dataset_dir.exists():
-        print(f"ERROR: Dataset directory not found: {dataset_dir}")
+    if not files_dir.exists():
+        print(f"ERROR: Files directory not found: {files_dir}")
         return
     
     # Initialize consolidated data
@@ -168,17 +168,31 @@ def build():
     all_organizations = []
     all_cases = []
     
-    # Find all document folders (EFTA*)
-    doc_folders = sorted([d for d in dataset_dir.iterdir() if d.is_dir() and d.name.startswith('EFTA')])
+    # Find all Dataset* folders
+    dataset_folders = sorted([d for d in files_dir.iterdir() if d.is_dir() and d.name.startswith('Dataset')])
     
-    if not doc_folders:
-        print(f"Warning: No EFTA* folders found in {dataset_dir}")
+    if not dataset_folders:
+        print(f"Warning: No Dataset* folders found in {files_dir}")
         return
     
-    print(f"Found {len(doc_folders)} document folders:\n")
+    print(f"Found {len(dataset_folders)} dataset folders\n")
+    
+    # Collect all document folders from all datasets
+    all_doc_folders = []
+    for dataset_folder in dataset_folders:
+        doc_folders = sorted([d for d in dataset_folder.iterdir() if d.is_dir() and d.name.startswith('EFTA')])
+        if doc_folders:
+            print(f"  {dataset_folder.name}: {len(doc_folders)} documents")
+            all_doc_folders.extend(doc_folders)
+    
+    if not all_doc_folders:
+        print(f"Warning: No EFTA* folders found in any dataset")
+        return
+    
+    print(f"\nProcessing {len(all_doc_folders)} total document folders:\n")
     
     # Process each document folder
-    for folder in doc_folders:
+    for folder in all_doc_folders:
         folder_name = folder.name
         print(f"  Processing {folder_name}...")
         

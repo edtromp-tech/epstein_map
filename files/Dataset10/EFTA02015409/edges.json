@@ -1,0 +1,27 @@
+{
+    "document_id": "doc_Dataset10_EFTA02015409",
+    "edges": [
+        {
+            "edge_id": "edge_Dataset10_EFTA02015409_1",
+            "source": "jeffrey_epstein",
+            "target": "barnaby_marsh",
+            "relationship": "other",
+            "weight": 1
+        },
+        {
+            "edge_id": "edge_Dataset10_EFTA02015409_2",
+            "source": "barnaby_marsh",
+            "target": "bill_drayton",
+            "relationship": "other",
+            "weight": 1
+        },
+        {
+            "edge_id": "edge_Dataset10_EFTA02015409_3",
+            "source": "jeffrey_epstein",
+            "target": "elon_musk",
+            "relationship": "other",
+            "weight": 1
+        }
+       
+    ]
+}

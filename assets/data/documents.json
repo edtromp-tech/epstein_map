@@ -1,5 +1,18 @@
 [
   {
+    "id": "doc_Dataset10_EFTA02015409",
+    "title": "Email between Jeffery and Barnaby Marsh on appointment time. Could join in with Elon beforehand.",
+    "date": "2012-September-23",
+    "source": "Email",
+    "filePath": "files/Dataset10/EFTA02015409/EFTA02015409.pdf",
+    "mentions": [
+      "jeffrey_epstein",
+      "barnaby_marsh",
+      "elon_musk",
+      "bill_drayton"
+    ]
+  },
+  {
     "id": "doc_Dataset12_EFTA02730265",
     "title": "Email chain where Larry Cohen sends draft 'Points' for a separation/settlement agreement, Jeffrey Epstein forwards to Boris Nikolic, and Nikolic replies with requested edits (termination date and job-help/reference clause).",
     "date": "2013-August-24",
@@ -80,6 +93,30 @@
     "mentions": [
       "leslie_groff",
       "jeffrey_epstein"
+    ]
+  },
+  {
+    "id": "doc_Dataset9_EFTA00392295",
+    "title": "Email between Leslie Groff and Elon Musk regarding a dinner party with Jeffrey Epstein",
+    "date": "2013-August-14",
+    "source": "Email",
+    "filePath": "files/Dataset9/EFTA00392295/EFTA00392295.pdf",
+    "mentions": [
+      "jeffrey_epstein",
+      "leslie_groff",
+      "elon_musk"
+    ]
+  },
+  {
+    "id": "doc_Dataset9_EFTA00395166",
+    "title": "Email from Leslie Groff to Jeffrey Epstein on a lunch time with Elon Musk.",
+    "date": "2013-August-24",
+    "source": "GMail",
+    "filePath": "files/Dataset9/EFTA00395166/EFTA00395166.pdf",
+    "mentions": [
+      "jeffrey_epstein",
+      "leslie_groff",
+      "elon_musk"
     ]
   }
 ]
