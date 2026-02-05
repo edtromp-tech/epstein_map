@@ -69,6 +69,37 @@ export async function mainApp({ pdfViewer }) {
 
   document.getElementById("resetBtn").onclick = () => graph.resetView();
 
+  // Toggle filters sidebar and fullscreen
+  const layout = document.querySelector(".layout");
+  const filtersSidebar = document.getElementById("filtersSidebar");
+  const toggleFiltersBtn = document.getElementById("toggleFiltersBtn");
+  const toggleFullscreenBtn = document.getElementById("toggleFullscreenBtn");
+  
+  let fullscreenMode = false;
+
+  if (toggleFiltersBtn && toggleFullscreenBtn && filtersSidebar) {
+    toggleFiltersBtn.onclick = () => {
+      filtersSidebar.classList.toggle("show");
+      toggleFiltersBtn.classList.toggle("active");
+    };
+
+    toggleFullscreenBtn.onclick = () => {
+      fullscreenMode = !fullscreenMode;
+      if (layout) {
+        layout.classList.toggle("fullscreen", fullscreenMode);
+      }
+      toggleFullscreenBtn.classList.toggle("active");
+    };
+
+    // Close sidebar when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!filtersSidebar.contains(e.target) && !toggleFiltersBtn.contains(e.target)) {
+        filtersSidebar.classList.remove("show");
+        toggleFiltersBtn.classList.remove("active");
+      }
+    });
+  }
+
   // Search
   const searchInput = document.getElementById("searchInput");
   const searchBtn = document.getElementById("searchBtn");

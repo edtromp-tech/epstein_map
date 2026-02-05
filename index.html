@@ -47,11 +47,16 @@
       <input id="searchInput" placeholder="Search person…" />
       <button id="searchBtn">Go</button>
     </div>
+
+    <div class="toggleButtons">
+      <button id="toggleFiltersBtn" class="toggleBtn" title="Toggle filters panel">☰ Filters</button>
+      <button id="toggleFullscreenBtn" class="toggleBtn" title="Toggle fullscreen graph">⛶ Full</button>
+    </div>
   </header>
 
   <main class="layout">
-    <!-- Left controls -->
-    <aside class="sidebar">
+    <!-- Left sidebar (hidden by default) -->
+    <aside id="filtersSidebar" class="sidebar">
       <section class="panel">
         <h3>Filters</h3>
 
@@ -92,13 +97,13 @@
       </section>
     </aside>
 
-    <!-- Graph -->
+    <!-- Graph (full width) -->
     <section class="graphWrap">
       <svg id="graph"></svg>
       <div id="toast" class="toast hidden"></div>
     </section>
 
-    <!-- Right details + PDF viewer -->
+    <!-- Bottom details + PDF viewer -->
     <aside class="rightbar">
       <section class="panel" id="detailsPanel">
         <h3>Person</h3>
