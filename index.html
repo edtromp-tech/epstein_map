@@ -3,40 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Epstein Files — Separation Map</title>
+  <title>Epstein Files — Network Explorer</title>
+
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <!-- D3 -->
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 
   <script type="module">
-    // Import PDF.js and your viewer as modules
-    // import * as pdfjsLib from "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.js";
-    // import { initPdfViewer } from "./assets/js/pdfviewer.js";
     import { mainApp } from "./assets/js/app.js";
 
-    // Attach pdfjsLib to window so your viewer can access it
-    // window.pdfjsLib = pdfjsLib;
-
-    // Initialize PDF viewer
-    // const pdfViewer = initPdfViewer({
-    //   canvasId: "pdfCanvas",
-    //   titleId: "pdfTitle",
-    //   hintId: "pdfHint",
-    //   loadingId: "pdfLoading",
-    //   prevId: "pdfPrev",
-    //   nextId: "pdfNext",
-    //   zoomInId: "pdfZoomIn",
-    //   zoomOutId: "pdfZoomOut"
-    // });
-
-    // Run main app
     mainApp({ pdfViewer: null }).catch(err => {
       console.error(err);
       alert("Failed to load site data. Check console for details.");
     });
   </script>
+</head>
+
 <body>
+  <!-- Top Navigation -->
   <header class="topbar">
     <div class="brand">
       <div class="title">Epstein Files — Network Explorer</div>
@@ -44,66 +29,76 @@
     </div>
 
     <div class="search">
-      <input id="searchInput" placeholder="Search person…" />
+      <input id="searchInput" placeholder="Search person…" autocomplete="off" />
       <button id="searchBtn">Go</button>
     </div>
 
     <div class="toggleButtons">
-      <button id="toggleFiltersBtn" class="toggleBtn" title="Toggle filters panel">☰ Filters</button>
       <button id="toggleFullscreenBtn" class="toggleBtn" title="Toggle fullscreen graph">⛶ Full</button>
     </div>
   </header>
 
+  <!-- Main Layout -->
   <main class="layout">
-    <!-- Left sidebar (hidden by default) -->
-    <aside id="filtersSidebar" class="sidebar">
-      <section class="panel">
-        <h3>Filters</h3>
+    
+    <!-- Left-side Filters Banner -->
+    <aside id="filtersBanner" class="filtersBanner" aria-hidden="true">
+    <!-- Collapsed strip --> 
+      <div class="bannerStrip"> 
+        <button id="bannerToggleBtn" class="bannerToggle" aria-expanded="false" aria-controls="bannerContent"> 
+          ☰ 
+        </button> 
+      </div>
 
-        <div class="row">
-          <label class="check"><input type="checkbox" id="filterVictim" checked /> Victims</label>
-          <label class="check"><input type="checkbox" id="filterAccused" checked /> Accused</label>
-          <label class="check"><input type="checkbox" id="filterOther" checked /> Other</label>
-        </div>
+      <!-- Expanded content -->
+      <div id="bannerContent" class="bannerContent" role="region">
+        <section class="panel">
+          <h3>Filters</h3>
 
-        <div class="row">
-          <label for="riskMin">Min risk</label>
-          <input id="riskMin" type="range" min="0" max="1" step="0.01" value="0" />
-          <div class="hint"><span id="riskMinLabel">0.00</span> → 1.00</div>
-          <div class="tiny">
-            Risk score is a heuristic computed from evidence links & relationship types.
+          <div class="row">
+            <label class="check"><input type="checkbox" id="filterVictim" checked /> Victims</label>
+            <label class="check"><input type="checkbox" id="filterAccused" checked /> Accused</label>
+            <label class="check"><input type="checkbox" id="filterOther" checked /> Other</label>
           </div>
-        </div>
 
-        <div class="row">
-          <label for="degreeLimit">Degrees shown</label>
-          <input id="degreeLimit" type="range" min="1" max="5" step="1" value="3" />
-          <div class="hint">Within <span id="degreeLimitLabel">3</span> hops of selected</div>
-        </div>
+          <div class="row">
+            <label for="riskMin">Min risk</label>
+            <input id="riskMin" type="range" min="0" max="1" step="0.01" value="0" />
+            <div class="hint"><span id="riskMinLabel">0.00</span> → 1.00</div>
+            <div class="tiny">Risk score is a heuristic computed from evidence links & relationship types.</div>
+          </div>
 
-        <div class="row">
-          <button id="resetBtn" class="btn">Reset View</button>
-        </div>
-      </section>
+          <div class="row">
+            <label for="degreeLimit">Degrees shown</label>
+            <input id="degreeLimit" type="range" min="1" max="5" step="1" value="3" />
+            <div class="hint">Within <span id="degreeLimitLabel">3</span> hops of selected</div>
+          </div>
 
-      <section class="panel">
-        <h3>Legend</h3>
-        <div class="legend">
-          <div class="legend-item"><span class="dot victim"></span> Victim</div>
-          <div class="legend-item"><span class="dot accused"></span> Accused</div>
-          <div class="legend-item"><span class="dot other"></span> Other</div>
-          <div class="legend-item"><span class="dot risk"></span> Red halo = higher risk</div>
-        </div>
-      </section>
+          <div class="row">
+            <button id="resetBtn" class="btn">Reset View</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h3>Legend</h3>
+          <div class="legend">
+            <div class="legend-item"><span class="dot victim"></span> Victim</div>
+            <div class="legend-item"><span class="dot accused"></span> Accused</div>
+            <div class="legend-item"><span class="dot other"></span> Other</div>
+            <div class="legend-item"><span class="dot risk"></span> Red halo = higher risk</div>
+          </div>
+        </section>
+      </div>
+
+  
     </aside>
 
-    <!-- Graph (full width) -->
-    <section class="graphWrap">
+    <!-- Graph + Right Sidebar -->
+    <div class="graphWrap">
       <svg id="graph"></svg>
       <div id="toast" class="toast hidden"></div>
-    </section>
+    </div>
 
-    <!-- Bottom details + PDF viewer -->
     <aside class="rightbar">
       <section class="panel" id="detailsPanel">
         <h3>Person</h3>
@@ -132,6 +127,7 @@
         </div>
       </section>
     </aside>
+
   </main>
 </body>
 </html>

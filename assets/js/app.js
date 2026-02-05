@@ -15,6 +15,9 @@ function toast(msg) {
 }
 
 export async function mainApp({ pdfViewer }) {
+  /* -------------------------------------------------------
+   * Load data
+   * ----------------------------------------------------- */
   const [people, edges, cases, documents] = await Promise.all([
     loadJSON("assets/data/people.json"),
     loadJSON("assets/data/edges.json"),
@@ -22,15 +25,15 @@ export async function mainApp({ pdfViewer }) {
     loadJSON("assets/data/documents.json"),
   ]);
 
-  // Index helpers
   const peopleById = new Map(people.map(p => [p.id, p]));
   const casesById = new Map(cases.map(c => [c.id, c]));
   const docsById = new Map(documents.map(d => [d.id, d]));
 
-  // Compute automatic risk score
   computeRiskScores({ people, edges, cases, documents });
 
-  // UI state
+  /* -------------------------------------------------------
+   * UI State
+   * ----------------------------------------------------- */
   const state = {
     filters: {
       victim: true,
@@ -41,109 +44,61 @@ export async function mainApp({ pdfViewer }) {
     }
   };
 
-  // Controls
-  const filterVictim = document.getElementById("filterVictim");
-  const filterAccused = document.getElementById("filterAccused");
-  const filterOther = document.getElementById("filterOther");
-  const riskMin = document.getElementById("riskMin");
-  const riskMinLabel = document.getElementById("riskMinLabel");
+  /* -------------------------------------------------------
+   * DOM references
+   * ----------------------------------------------------- */
+  const dom = {
+    filterVictim: document.getElementById("filterVictim"),
+    filterAccused: document.getElementById("filterAccused"),
+    filterOther: document.getElementById("filterOther"),
+    riskMin: document.getElementById("riskMin"),
+    riskMinLabel: document.getElementById("riskMinLabel"),
+    degreeLimit: document.getElementById("degreeLimit"),
+    degreeLimitLabel: document.getElementById("degreeLimitLabel"),
+    resetBtn: document.getElementById("resetBtn"),
 
-  const degreeLimit = document.getElementById("degreeLimit");
-  const degreeLimitLabel = document.getElementById("degreeLimitLabel");
+    searchInput: document.getElementById("searchInput"),
+    searchBtn: document.getElementById("searchBtn"),
 
-  filterVictim.onchange = () => { state.filters.victim = filterVictim.checked; graph.applyFilters(state.filters); };
-  filterAccused.onchange = () => { state.filters.accused = filterAccused.checked; graph.applyFilters(state.filters); };
-  filterOther.onchange = () => { state.filters.other = filterOther.checked; graph.applyFilters(state.filters); };
+    layout: document.querySelector(".layout"),
+    filtersBanner: document.getElementById("filtersBanner"),
+    bannerToggleBtn: document.getElementById("bannerToggleBtn"),
+    toggleFullscreenBtn: document.getElementById("toggleFullscreenBtn"),
 
-  riskMin.oninput = () => {
-    state.filters.riskMin = parseFloat(riskMin.value);
-    riskMinLabel.textContent = state.filters.riskMin.toFixed(2);
-    graph.applyFilters(state.filters);
+    detailsPanel: document.getElementById("detailsPanel"),
   };
 
-  degreeLimit.oninput = () => {
-    state.filters.degreeLimit = parseInt(degreeLimit.value, 10);
-    degreeLimitLabel.textContent = state.filters.degreeLimit;
-    graph.setDegreeLimit(state.filters.degreeLimit);
-  };
-
-  document.getElementById("resetBtn").onclick = () => graph.resetView();
-
-  // Toggle filters sidebar and fullscreen
-  const layout = document.querySelector(".layout");
-  const filtersSidebar = document.getElementById("filtersSidebar");
-  const toggleFiltersBtn = document.getElementById("toggleFiltersBtn");
-  const toggleFullscreenBtn = document.getElementById("toggleFullscreenBtn");
-  
-  let fullscreenMode = false;
-
-  if (toggleFiltersBtn && toggleFullscreenBtn && filtersSidebar) {
-    toggleFiltersBtn.onclick = () => {
-      filtersSidebar.classList.toggle("show");
-      toggleFiltersBtn.classList.toggle("active");
-    };
-
-    toggleFullscreenBtn.onclick = () => {
-      fullscreenMode = !fullscreenMode;
-      if (layout) {
-        layout.classList.toggle("fullscreen", fullscreenMode);
-      }
-      toggleFullscreenBtn.classList.toggle("active");
-    };
-
-    // Close sidebar when clicking outside
-    document.addEventListener("click", (e) => {
-      if (!filtersSidebar.contains(e.target) && !toggleFiltersBtn.contains(e.target)) {
-        filtersSidebar.classList.remove("show");
-        toggleFiltersBtn.classList.remove("active");
-      }
-    });
-  }
-
-  // Search
-  const searchInput = document.getElementById("searchInput");
-  const searchBtn = document.getElementById("searchBtn");
-  function doSearch() {
-    const q = (searchInput.value || "").trim().toLowerCase();
-    if (!q) return;
-    const hit = people.find(p => p.name.toLowerCase().includes(q));
-    if (!hit) return toast("No match found.");
-    graph.focusPerson(hit.id);
-  }
-  searchBtn.onclick = doSearch;
-  searchInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") doSearch();
-  });
-
-  // Details panel renderer
+  /* -------------------------------------------------------
+   * Render: Person Details
+   * ----------------------------------------------------- */
   function renderDetails(personId) {
-    const panel = document.getElementById("detailsPanel");
     const p = peopleById.get(personId);
     if (!p) return;
 
-    const typeBadge = p.type === "victim" ? "victim" : (p.type === "accused" ? "accused" : "");
+    const typeBadge = p.type === "victim" ? "victim" :
+                      p.type === "accused" ? "accused" : "";
+
     const riskText = (p.risk ?? 0).toFixed(2);
 
-    // docs mentioning person
+    // Collect documents mentioning this person
     const docIds = new Set();
+
     for (const d of documents) {
       if ((d.mentions || []).includes(p.id)) docIds.add(d.id);
     }
-    // docs from cases
+
     for (const caseId of (p.caseIds || [])) {
       const c = casesById.get(caseId);
       (c?.documentIds || []).forEach(id => docIds.add(id));
     }
 
-    const docList = [...docIds]
-      .map(id => docsById.get(id))
-      .filter(Boolean);
-
+    const docList = [...docIds].map(id => docsById.get(id)).filter(Boolean);
     const casesList = (p.caseIds || []).map(id => casesById.get(id)).filter(Boolean);
 
-    panel.innerHTML = `
+    dom.detailsPanel.innerHTML = `
       <h3>Person</h3>
       <div class="personName">${p.name}</div>
+
       <div class="badges">
         <span class="badge ${typeBadge}">${p.type.toUpperCase()}</span>
         <span class="badge">Risk: ${riskText}</span>
@@ -180,27 +135,112 @@ export async function mainApp({ pdfViewer }) {
       ` : `<div class="empty">No documents linked.</div>`}
     `;
 
-    // Hook doc clicks -> PDF viewer
-    panel.querySelectorAll("[data-doc]").forEach(el => {
+    dom.detailsPanel.querySelectorAll("[data-doc]").forEach(el => {
       el.addEventListener("click", async () => {
         const docId = el.getAttribute("data-doc");
         const doc = docsById.get(docId);
         if (!doc) return;
-        // TODO: PDF viewer disabled for now
+        // PDF viewer disabled for now
         // if (pdfViewer) await pdfViewer.load(doc.filePath, doc.title);
       });
     });
   }
 
-  // Init graph
+  /* -------------------------------------------------------
+   * Graph initialization
+   * ----------------------------------------------------- */
   const graph = initGraph({
     svgId: "graph",
     people,
     edges,
-    onPersonClick: (personId) => renderDetails(personId),
+    onPersonClick: renderDetails,
   });
 
   graph.applyFilters(state.filters);
 
+  /* -------------------------------------------------------
+   * Event bindings
+   * ----------------------------------------------------- */
+
+  // Filters
+  dom.filterVictim.onchange = () => {
+    state.filters.victim = dom.filterVictim.checked;
+    graph.applyFilters(state.filters);
+  };
+
+  dom.filterAccused.onchange = () => {
+    state.filters.accused = dom.filterAccused.checked;
+    graph.applyFilters(state.filters);
+  };
+
+  dom.filterOther.onchange = () => {
+    state.filters.other = dom.filterOther.checked;
+    graph.applyFilters(state.filters);
+  };
+
+  dom.riskMin.oninput = () => {
+    state.filters.riskMin = parseFloat(dom.riskMin.value);
+    dom.riskMinLabel.textContent = state.filters.riskMin.toFixed(2);
+    graph.applyFilters(state.filters);
+  };
+
+  dom.degreeLimit.oninput = () => {
+    state.filters.degreeLimit = parseInt(dom.degreeLimit.value, 10);
+    dom.degreeLimitLabel.textContent = state.filters.degreeLimit;
+    graph.setDegreeLimit(state.filters.degreeLimit);
+  };
+
+  dom.resetBtn.onclick = () => graph.resetView();
+
+  // Search
+  function doSearch() {
+    const q = (dom.searchInput.value || "").trim().toLowerCase();
+    if (!q) return;
+
+    const hit = people.find(p => p.name.toLowerCase().includes(q));
+    if (!hit) return toast("No match found.");
+
+    graph.focusPerson(hit.id);
+  }
+
+  dom.searchBtn.onclick = doSearch;
+  dom.searchInput.addEventListener("keydown", e => {
+    if (e.key === "Enter") doSearch();
+  });
+
+  // Filters banner
+  dom.bannerToggleBtn.onclick = e => {
+    e.stopPropagation();
+    const expanded = dom.filtersBanner.classList.toggle("expanded");
+    dom.filtersBanner.setAttribute("aria-hidden", expanded ? "false" : "true");
+    dom.bannerToggleBtn.setAttribute("aria-expanded", expanded ? "true" : "false");
+  };
+
+  document.addEventListener("click", e => {
+    if (!dom.filtersBanner.contains(e.target) &&
+        !dom.bannerToggleBtn.contains(e.target)) {
+      dom.filtersBanner.classList.remove("expanded");
+      dom.filtersBanner.setAttribute("aria-hidden", "true");
+      dom.bannerToggleBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      dom.filtersBanner.classList.remove("expanded");
+      dom.filtersBanner.setAttribute("aria-hidden", "true");
+      dom.bannerToggleBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // Fullscreen
+  dom.toggleFullscreenBtn.onclick = () => {
+    const active = dom.toggleFullscreenBtn.classList.toggle("active");
+    dom.layout.classList.toggle("fullscreen", active);
+  };
+
+  /* -------------------------------------------------------
+   * Startup toast
+   * ----------------------------------------------------- */
   toast("Loaded. Click a person bubble to explore.");
 }
