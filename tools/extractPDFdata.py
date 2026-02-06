@@ -35,7 +35,7 @@ except Exception:
 from datasketch import MinHash, MinHashLSH
 from difflib import SequenceMatcher
 
-from utilities import extract_data,normalize_text, sha256_file, find_pdfs,strip_middle_initial, find_index_people_in_text, score_person, BAD_NAME_TERMS, BAD_LAST_NAMES, PERSON_REGEX, ORG_REGEX, EMAIL_REGEX, URL_REGEX, extract_text_from_pdf, similarity
+from utilities import extract_data,normalize_text, sha256_file, find_pdfs,strip_middle_initial, find_index_people_in_text, score_person, BAD_NAME_TERMS, BAD_LAST_NAMES, PERSON_REGEX, ORG_REGEX, EMAIL_REGEX, URL_REGEX, extract_text_from_pdf, similarity,store_document_in_db
 
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
