@@ -20,5 +20,32 @@
     "tags": [
       "organization"
     ]
+  },
+  {
+    "id": "org_management_llc",
+    "type": "organization",
+    "name": "management llc",
+    "aliases": [],
+    "tags": [
+      "organization"
+    ]
+  },
+  {
+    "id": "org_partners_llc",
+    "type": "organization",
+    "name": "partners llc",
+    "aliases": [],
+    "tags": [
+      "organization"
+    ]
+  },
+  {
+    "id": "org_biomaterials_corp",
+    "type": "organization",
+    "name": "biomaterials corp",
+    "aliases": [],
+    "tags": [
+      "organization"
+    ]
   }
 ]

@@ -18,7 +18,10 @@
       "case_2019_sdny",
       "case_2008_fl",
       "case_9:10-cv-80447-KAM"
-    ]
+    ],
+    "aliases": [],
+    "roles": [],
+    "confidence": 1.0
   },
   {
     "id": "barnaby_marsh",
@@ -169,20 +172,15 @@
     ]
   },
   {
-    "id": "jeffery_epstein",
-    "name": "Jeffery Epstein",
-    "type": "accused",
-    "tags": [
-      "to_be_categorized"
-    ]
-  },
-  {
     "id": "leon_black",
     "name": "Leon Black",
     "type": "other",
     "tags": [
       "to_be_categorized"
-    ]
+    ],
+    "aliases": [],
+    "roles": [],
+    "confidence": 1.0
   },
   {
     "id": "leslie_groff",
@@ -214,5 +212,21 @@
     "tags": [
       "to_be_categorized"
     ]
+  },
+  {
+    "id": "jeanne_christensen",
+    "name": "jeanne christensen",
+    "type": "other",
+    "aliases": [],
+    "roles": [],
+    "tags": []
+  },
+  {
+    "id": "dany",
+    "name": "Dany",
+    "type": "victim",
+    "aliases": [],
+    "roles": [],
+    "tags": []
   }
 ]

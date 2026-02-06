@@ -209,9 +209,14 @@
         "edge_id": "edge_Dataset12_EFTA02731018_1",
         "relationship": "associate",
         "weight": 2
+      },
+      {
+        "edge_id": "edge_doc_Dataset12_EFTA02731023_3",
+        "relationship": "co_mentioned",
+        "weight": 1
       }
     ],
-    "avg_weight": 2.0
+    "avg_weight": 1.67
   },
   {
     "source": "jeffrey_epstein",
@@ -258,6 +263,54 @@
       }
     ],
     "avg_weight": 3.0
+  },
+  {
+    "source": "jeanne_christensen",
+    "target": "leon_black",
+    "edges": [
+      {
+        "edge_id": "edge_doc_Dataset12_EFTA02731637_1",
+        "relationship": "co_mentioned",
+        "weight": 1
+      }
+    ],
+    "avg_weight": 1.0
+  },
+  {
+    "source": "jeanne_christensen",
+    "target": "dany",
+    "edges": [
+      {
+        "edge_id": "edge_doc_Dataset12_EFTA02731637_2",
+        "relationship": "co_mentioned",
+        "weight": 1
+      }
+    ],
+    "avg_weight": 1.0
+  },
+  {
+    "source": "leon_black",
+    "target": "dany",
+    "edges": [
+      {
+        "edge_id": "edge_doc_Dataset12_EFTA02731637_3",
+        "relationship": "co_mentioned",
+        "weight": 1
+      }
+    ],
+    "avg_weight": 1.0
+  },
+  {
+    "source": "leon_black",
+    "target": "jeanne_christensen",
+    "edges": [
+      {
+        "edge_id": "edge_doc_Dataset12_EFTA02731651_1",
+        "relationship": "co_mentioned",
+        "weight": 1
+      }
+    ],
+    "avg_weight": 1.0
   },
   {
     "source": "leslie_groff",
